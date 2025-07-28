@@ -13,8 +13,8 @@ async function loadPosts() {
     const posts = await res.json();
 
     
-    postsContainer.innerHTML = posts.slice(0, 5).map(post => `
-      <div style="border: 5px solid white; margin: 10px; padding: 10px;">
+    postsContainer.innerHTML = posts.slice(0,9).map(post => `
+      <div style="border: 2px solid white; margin: 10px; padding: 10px; border-radius: 12px;">
         <h3>${post.title}</h3>
         <p>${post.body}</p>
       </div>

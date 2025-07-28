@@ -7,14 +7,25 @@
      background-image: url(dried-leaves-plate.jpg); 
     margin: 20px;
     padding: 0;
-    color: #333;
+    color:#333;
     background-repeat: no-repeat;
     background-position: fixed;
     background-size: 2000px;
     background-image: cover;
     
   }
-  
+  @media(max-width:68px) {
+    .posts{
+      grid-template-columns: repeat(2, 1fr);
+      flex: 1 1 calc(50% - 20px);
+    }
+  }
+  @media(max-width: 80px) {
+    .posts {
+      grid-template-columns: 1fr;
+      flex: 1 1 1000%;
+    }
+  }
   h1, h2 {
     color: #007bff;
     text-align: center;
@@ -23,13 +34,14 @@
   }
   
   #posts {
-     width: 200;
-     height: 250px;
      margin: 0 auto 30px auto;
     display: flex;
     gap: 10px;
-    color: rgb(185, 167, 167);
-    
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: 20px;
+    gap: 20px;
     
     
     
@@ -40,7 +52,7 @@
     padding: 20px;
     margin-bottom: 15px;
     border: 1px solid white;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);    
   }
   
@@ -63,17 +75,18 @@
   input[type="text"],
   textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 12px;
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 10px;
     border: 1px solid #c5acac;
     border-radius: 5px;
     font-size: 1rem;
   }
   
   button {
-    background-color: #007bff;
+    background-color: #2345696b;
     color: white;
-    padding: 10px 16px;
+    padding: 10px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
