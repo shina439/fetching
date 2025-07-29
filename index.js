@@ -13,12 +13,15 @@ async function loadPosts() {
     const posts = await res.json();
 
     
-    postsContainer.innerHTML = posts.slice(0,9).map(post => `
+    postsContainer.innerHTML = posts
+    .reverse()
+    .slice(0,9)
+    .map(post => `
       <div style="border: 2px solid white; margin: 10px; padding: 10px; border-radius: 12px;">
         <h3>${post.title}</h3>
         <p>${post.body}</p>
       </div>
-    `).join(""); // Join turns array into one string
+    `).join(""); 
   } catch (error) {
     postsContainer.innerHTML = `<p style="color: red;">Error loading posts: ${error.message}</p>`;
   }
@@ -48,6 +51,21 @@ postForm.addEventListener("submit", async (e) => {
 
     const data = await res.json();
     alert("Post added with ID: " + data.id);
+
+    prependPostToPage(savedPost);
+
+    function prependPostToPage(post) {
+      const postDiv = document.createElement("div");
+      postDiv.style.border = "2px solid white";
+      postDiv.style.margin = "10px";
+      postDiv.style.padding = "10px";
+      postDiv.style.borderRadius = "12px";
+      postDiv.innerHTML = `<h3>${post.title}</h3><p>${post.body}</p>`;
+    
+      // Add at the top of the container
+      postsContainer.prepend(postDiv);
+    }
+    
 
     // Optional: reload posts
     loadPosts();
