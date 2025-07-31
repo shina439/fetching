@@ -62,12 +62,10 @@ postForm.addEventListener("submit", async (e) => {
       postDiv.style.borderRadius = "12px";
       postDiv.innerHTML = `<h3>${post.title}</h3><p>${post.body}</p>`;
     
-      // Add at the top of the container
+    
       postsContainer.prepend(postDiv);
     }
-    
-
-    // Optional: reload posts
+  
     loadPosts();
 
     postForm.reset();
